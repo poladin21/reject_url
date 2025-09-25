@@ -1,11 +1,21 @@
 package url
 
-import "database/sql"
+import (
+	"database/sql"
+	"redirect_url/internal/interfaces"
+)
 
 type Storage struct {
 	db *sql.DB
 }
 
-func New() Storage {
-	return Storage{}
+func New(db *sql.DB) interfaces.Storeges {
+	return &Storage{
+		db: db,
+	}
+}
+
+func (s Storage) GetByID(ID int) error {
+
+	return nil
 }
